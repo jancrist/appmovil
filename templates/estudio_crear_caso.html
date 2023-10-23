@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Caso</title>
+</head>
+<body>
+    <h1>Crear Nuevo Caso</h1>
+    <form action="/crear_caso_funcion" method="POST" enctype="multipart/form-data">
+        <label for="fecha_inicio">Fecha de Inicio:</label>
+        <input type="date" id="fecha_inicio" name="Fecha de Inicio" required>
+        <br>
+        <label for="status">Estado:</label>
+        <input type="text" id="status" name="Estado" required>
+        <br>
+        <label for="abogado_id">Abogado:</label>
+        <select id="abogado_id" name="Abogado" required>
+            <option value="1">Abogado 1</option>
+            <option value="2">Abogado 2</option>
+            <!-- Agrega más opciones según tus abogados -->
+        </select>
+        <br>
+        <label for="cliente_id">Cliente:</label>
+        <select id="cliente_id" name="Cliente" required>
+            <option value="1">Cliente 1</option>
+            <option value="2">Cliente 2</option>
+            <!-- Agrega más opciones según tus clientes -->
+        </select>
+        <br>
+        
+        <br>
+        <input type="submit" id="btnGuardarCaso" value="Guardar Caso">
+    </form>
+    
+</body>
+</html>

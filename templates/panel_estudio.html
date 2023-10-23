@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - El Abogado AR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+
+
+
+    <style>
+        /* Reset de estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fuentes */
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px; /* Ajusta el ancho según el tamaño de tu logo */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff9900; /* Cambia el color al pasar el mouse */
+        }
+
+        /* Contenido Principal */
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* Cambio a una columna en pantallas móviles */
+            grid-gap: 20px;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 18px;
+        }
+
+        /* Barra lateral */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover {
+            color: #ff9900;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        span.open-btn {
+                top: 20px; /* Ajusta la posición en pantallas móviles */
+                margin-left: 10px; /* Ajusta la posición en pantallas móviles */
+                font-size:30px;
+                cursor:pointer;
+            }
+        /* Estilos específicos para pantallas móviles */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+            }
+            .nav-links li {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Barra lateral -->
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="#">Casos</a>
+        <a href="#">Abogados</a>
+        <a href="#">Clientes</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="main-content">
+        <header>
+            <nav>
+                <span class="open-btn" onclick="openSidebar()">&#9776;</span>
+                <div class="logo">
+                    <img src="tu_ruta/logo.png" alt="El Abogado AR Logo">
+                </div>
+                
+            </nav>
+        </header>
+
+        <main>
+            <section class="dashboard">
+                <div class="card">
+                    <h2>Casos</h2>
+                    <p>Total: 10</p>
+                    <p>En Proceso: 5</p>
+                </div>
+                <div class="card">
+                    <h2>Abogados</h2>
+                    <p>Total: 5</p>
+                    <p>Disponibles: 3</p>
+                </div>
+                <div class="card">
+                    <h2>Clientes</h2>
+                    <p>Total: 20</p>
+                    <p>Activos: 15</p>
+                </div>
+            </section>
+            
+
+        </main>
+
+        <footer>
+            <p>&copy; 2023 El Abogado AR</p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para abrir la barra lateral
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        // Función para cerrar la barra lateral
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+</body>
+</html>
